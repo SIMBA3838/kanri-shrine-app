@@ -1,0 +1,236 @@
+/* ============================================================
+   わびなび 記事ページ — デザイントークン
+   モックアップ忠実再現（高級感 × 和モダン × 雑誌編集）
+   ============================================================ */
+:root{
+  /* カラー */
+  --bg: #F8F6F2;
+  --surface: #FFFFFF;
+  --ink: #2B2724;
+  --ink-soft: #6B645C;
+  --ink-mute: #9A9288;
+  --gold: #B89A5E;
+  --gold-soft: #C9B584;
+  --gold-bg: rgba(184,154,94,.10);
+  --line: #E9E4DA;
+  --shadow: 0 12px 40px rgba(0,0,0,.05);
+  --shadow-sm: 0 4px 16px rgba(0,0,0,.04);
+  /* 余白 */
+  --pad-x: 16px;
+  --sec-gap: 72px;
+  --card-pad: 22px;
+  --radius: 24px;
+  --radius-sm: 14px;
+  /* タイポ */
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ページ全体を430px中央寄せ（モバイル専用） */
+.page{
+  max-width:430px;
+  margin:0 auto;
+  background:var(--bg);
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ── 固定ヘッダー ── */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  height:72px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--pad-x);
+  max-width:430px;margin:0 auto;
+}
+.site-header .hd-back{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;cursor:pointer;color:var(--ink);
+}
+.site-header .hd-back svg{width:22px;height:22px}
+.site-header .hd-title{
+  font-family:var(--serif);font-size:16px;font-weight:700;
+  letter-spacing:.08em;color:var(--ink);
+}
+.site-header .hd-spacer{width:40px}
+
+/* ── ヒーロー ── */
+.hero{
+  position:relative;
+  margin:var(--pad-x);
+  height:420px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.hero-img{width:100%;height:100%;object-fit:cover}
+.hero-grad{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(20,16,12,.82) 0%,rgba(20,16,12,.25) 42%,rgba(20,16,12,0) 68%);
+}
+.hero-content{position:absolute;left:0;right:0;bottom:0;padding:26px 24px}
+.hero-tag{
+  display:inline-block;
+  background:var(--gold-soft);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:6px 14px;border-radius:999px;
+  font-family:var(--sans);margin-bottom:16px;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:30px;font-weight:700;line-height:1.4;
+  color:#fff;letter-spacing:.02em;
+  text-shadow:0 2px 16px rgba(0,0,0,.4);
+}
+
+/* ── リード文 ── */
+.lead{
+  padding:28px var(--pad-x) 0;
+  font-size:15px;line-height:1.95;color:var(--ink-soft);
+  font-family:var(--sans);
+}
+
+/* ── セクション共通 ── */
+.section{padding:var(--sec-gap) var(--pad-x) 0}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:28px}
+.section-num{
+  font-family:var(--serif);font-size:30px;font-weight:700;
+  font-style:italic;color:var(--gold);line-height:1;
+}
+.section-title{
+  font-family:var(--serif);font-size:19px;font-weight:700;
+  color:var(--ink);letter-spacing:.04em;
+}
+
+/* ── 巡礼スポット（縦積み・画像最優先） ── */
+.spot{margin-bottom:48px}
+.spot:last-child{margin-bottom:0}
+.spot-photo{
+  width:100%;height:260px;
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);background:#e8e2d6;
+}
+.spot-photo img{width:100%;height:100%;object-fit:cover}
+.spot-info{padding:20px 4px 0}
+.spot-name{
+  font-family:var(--serif);font-size:21px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em;line-height:1.4;
+}
+.spot-name .reading{font-size:13px;font-weight:400;color:var(--ink-mute);margin-left:6px}
+.spot-loc{font-size:13px;color:var(--ink-mute);margin-top:5px;font-family:var(--sans)}
+.spot-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tag{
+  font-size:12px;color:var(--gold);
+  background:var(--gold-bg);border:1px solid rgba(184,154,94,.28);
+  border-radius:999px;padding:5px 14px;
+  font-family:var(--sans);font-weight:500;white-space:nowrap;
+}
+.spot-desc{
+  margin-top:16px;font-size:14.5px;line-height:1.95;
+  color:var(--ink-soft);font-family:var(--sans);
+}
+
+/* ── 近隣スポット（16:10） ── */
+.nearby{margin-bottom:40px}
+.nearby:last-child{margin-bottom:0}
+.nearby-photo{
+  width:100%;aspect-ratio:16/10;
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);background:#e8e2d6;
+}
+.nearby-photo img{width:100%;height:100%;object-fit:cover}
+.nearby-info{padding:18px 4px 0}
+.nearby-name{
+  font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);
+}
+.nearby-name .cat{font-size:12px;font-weight:400;color:var(--ink-mute);margin-left:6px}
+.nearby-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.nearby-desc{margin-top:12px;font-size:14px;line-height:1.9;color:var(--ink-soft)}
+
+/* ── まとめカード ── */
+.summary-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:36px;
+}
+.summary-card p{font-size:14.5px;line-height:1.95;color:var(--ink-soft)}
+
+/* ── 宿泊施設（2列） ── */
+.lodging-head{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.lodging-head .ico{font-size:16px}
+.lodging-head h3{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink)}
+.lodging-head .note{font-size:11px;color:var(--ink-mute);font-weight:400}
+.lodging-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lodging-card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+}
+.lodging-photo{width:100%;aspect-ratio:16/10;overflow:hidden;background:#e8e2d6}
+.lodging-photo img{width:100%;height:100%;object-fit:cover}
+.lodging-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
+.lodging-name{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);line-height:1.4}
+.lodging-desc{font-size:11.5px;line-height:1.7;color:var(--ink-soft);margin-top:6px;flex:1}
+.lodging-cta{
+  margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid var(--gold-soft);border-radius:999px;
+  padding:9px;font-size:12px;color:var(--gold);font-weight:600;
+  font-family:var(--sans);cursor:pointer;background:transparent;
+  transition:all .2s ease;
+}
+.lodging-cta:hover{background:var(--gold-bg)}
+.lodging-cta svg{width:12px;height:12px}
+
+/* ── SNS共有 ── */
+.share{padding:var(--sec-gap) var(--pad-x) 90px;text-align:center}
+.share-title{font-family:var(--serif);font-size:13px;color:var(--ink-mute);letter-spacing:.1em;margin-bottom:24px}
+.share-icons{display:flex;justify-content:center;gap:28px}
+.share-btn{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;border:none;background:transparent;
+  transition:transform .3s ease;
+}
+.share-btn:active{transform:scale(.9)}
+.share-icon{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+.share-icon svg{width:22px;height:22px}
+.share-x .share-icon{background:#000}
+.share-fb .share-icon{background:#1877F2}
+.share-line .share-icon{background:#06C755}
+.share-label{font-size:11px;color:var(--ink-soft);font-family:var(--sans)}
+
+/* ── スクロールfade-up ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.fade-up.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .fade-up{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* hover micro */
+.spot-photo,.nearby-photo,.lodging-card{transition:transform .3s ease}
+.spot:hover .spot-photo,.nearby:hover .nearby-photo{transform:scale(1.02)}

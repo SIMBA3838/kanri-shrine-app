@@ -1,0 +1,119 @@
+/* ============================================================
+   わびなび 管理画面 CSS
+   ============================================================ */
+:root{
+  --bg:#F8F6F2; --surface:#fff; --ink:#2B2724; --ink-soft:#6B645C; --ink-mute:#9A9288;
+  --gold:#B89A5E; --gold-soft:#C9B584; --gold-bg:rgba(184,154,94,.10);
+  --purple:#5E3A8A; --red:#B23A2E; --green:#2e8b57;
+  --line:#E9E4DA; --shadow:0 12px 40px rgba(0,0,0,.05); --shadow-sm:0 4px 16px rgba(0,0,0,.04);
+  --radius:18px; --serif:'Noto Serif JP',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer}
+input,textarea,select{font-family:var(--sans)}
+
+.admin-wrap{max-width:760px;margin:0 auto;padding:0 16px;min-height:100vh}
+
+/* ── ヘッダー ── */
+.adm-header{
+  position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+  height:64px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);margin:0 -16px;padding:0 16px;
+}
+.adm-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.06em}
+.adm-brand .dot{width:24px;height:24px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
+.adm-header .right{display:flex;gap:8px;align-items:center}
+
+/* ── ボタン ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;transition:all .18s ease}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 3px 12px rgba(184,154,94,.3)}
+.btn-gold:hover{background:#a8893f}
+.btn-purple{background:var(--purple);color:#fff;box-shadow:0 3px 12px rgba(94,58,138,.3)}
+.btn-purple:hover{opacity:.9}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+.btn-ghost:hover{background:#fff}
+.btn-danger{background:transparent;border:1px solid rgba(178,58,46,.3);color:var(--red)}
+.btn-danger:hover{background:rgba(178,58,46,.06)}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn svg{width:15px;height:15px}
+
+/* ── ログイン ── */
+.login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:40px 32px;width:100%;max-width:380px;text-align:center}
+.login-logo{width:56px;height:56px;border-radius:50%;background:var(--gold);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px}
+.login-card h1{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.login-card .sub{font-size:13px;color:var(--ink-mute);margin-bottom:28px}
+.field{text-align:left;margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;background:#fcfbf9;color:var(--ink);transition:border .15s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold-soft);background:#fff}
+.login-err{font-size:12px;color:var(--red);margin-bottom:12px;min-height:16px}
+
+/* ── ダッシュボード ── */
+.dash-top{display:flex;align-items:center;justify-content:space-between;padding:24px 0 16px}
+.dash-top h1{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:.04em}
+.dash-tabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.dash-tab{padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink-soft)}
+.dash-tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dash-actions{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+
+/* 記事一覧 */
+.art-list{display:flex;flex-direction:column;gap:14px;padding-bottom:60px}
+.art-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;gap:0}
+.art-thumb{width:110px;flex-shrink:0;aspect-ratio:1/1;background:#e8e2d6;overflow:hidden}
+.art-thumb img{width:100%;height:100%;object-fit:cover}
+.art-main{flex:1;min-width:0;padding:14px 16px;display:flex;flex-direction:column}
+.art-status{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;align-self:flex-start;margin-bottom:6px}
+.art-status.published{background:rgba(46,139,87,.12);color:var(--green)}
+.art-status.draft{background:rgba(154,146,136,.15);color:var(--ink-mute)}
+.art-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.4;color:var(--ink)}
+.art-meta{font-size:11px;color:var(--ink-mute);margin-top:4px}
+.art-ops{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.art-op{font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:#fcfbf9;color:var(--ink-soft);font-weight:600}
+.art-op:hover{background:#fff;border-color:var(--gold-soft)}
+.art-op.del{color:var(--red);border-color:rgba(178,58,46,.25)}
+
+.empty{text-align:center;padding:60px 20px;color:var(--ink-mute)}
+.empty .ico{font-size:40px;margin-bottom:12px;opacity:.5}
+
+/* ── エディター ── */
+.editor-wrap{padding-bottom:120px}
+.ed-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:20px;margin-top:16px}
+.ed-section h2{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.ed-section h2 .n{width:22px;height:22px;border-radius:50%;background:var(--gold-bg);color:var(--gold);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.ed-row{display:flex;gap:12px}
+.ed-row .field{flex:1}
+.help{font-size:11px;color:var(--ink-mute);margin-top:4px}
+textarea{resize:vertical;min-height:80px;line-height:1.7}
+
+/* リピーター（スポット・宿泊など） */
+.rep-item{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;background:#fcfbf9;position:relative}
+.rep-item .rep-del{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--red);font-size:14px;display:flex;align-items:center;justify-content:center}
+.rep-num{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:10px;letter-spacing:.06em}
+.add-btn{width:100%;border:1.5px dashed var(--gold-soft);background:var(--gold-bg);color:var(--gold);border-radius:12px;padding:11px;font-size:13px;font-weight:600;margin-top:4px}
+.add-btn:hover{background:rgba(184,154,94,.16)}
+
+/* 固定フッターバー */
+.ed-footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 16px;z-index:40}
+.ed-footer-inner{max-width:760px;margin:0 auto;display:flex;gap:10px}
+.ed-footer .btn{flex:1}
+
+/* トースト */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;transition:all .3s ease;z-index:100;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* チップ入力 */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--gold-bg);color:var(--gold);border:1px solid rgba(184,154,94,.28);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+.chip button{border:none;background:none;color:var(--gold);font-size:13px;line-height:1;cursor:pointer}
+
+/* プレビューモーダル */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.modal-frame{width:430px;max-width:100%;height:88vh;background:#fff;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.modal-frame iframe{width:100%;height:100%;border:none}
+.modal-close{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:none;font-size:18px;z-index:2}
