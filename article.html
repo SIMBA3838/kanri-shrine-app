@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>わびなび｜巡礼ルート記事</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="page">
+  <!-- 固定ヘッダー -->
+  <header class="site-header">
+    <button class="hd-back" onclick="history.length>1?history.back():location.href='../index.html'" aria-label="戻る">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="hd-title" id="hdTitle">おすすめルート</span>
+    <span class="hd-spacer"></span>
+  </header>
+
+  <!-- 記事本体（JSで描画） -->
+  <main id="article"></main>
+</div>
+
+<script src="../assets/js/article.js"></script>
+</body>
+</html>
