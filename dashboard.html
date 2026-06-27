@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>わびなび 管理画面｜記事一覧</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<div class="admin-wrap">
+  <header class="adm-header">
+    <div class="adm-brand"><span class="dot">⛩</span>わびなび CMS</div>
+    <div class="right">
+      <button class="btn btn-ghost btn-sm" id="logoutBtn">ログアウト</button>
+    </div>
+  </header>
+
+  <div class="dash-top">
+    <h1>記事一覧</h1>
+    <a class="btn btn-purple" href="editor.html">＋ 新規投稿</a>
+  </div>
+
+  <div class="dash-tabs" id="tabs">
+    <button class="dash-tab on" data-filter="all">すべて</button>
+    <button class="dash-tab" data-filter="published">公開中</button>
+    <button class="dash-tab" data-filter="draft">下書き</button>
+  </div>
+
+  <div class="dash-actions">
+    <button class="btn btn-gold btn-sm" id="exportBtn">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      articles.json を書き出して公開
+    </button>
+  </div>
+
+  <div class="art-list" id="list"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- プレビューモーダル -->
+<div class="modal" id="previewModal">
+  <div class="modal-frame">
+    <button class="modal-close" id="previewClose">×</button>
+    <iframe id="previewFrame"></iframe>
+  </div>
+</div>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
