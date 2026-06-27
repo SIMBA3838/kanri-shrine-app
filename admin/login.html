@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>わびなび 管理画面｜ログイン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<div class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">⛩</div>
+    <h1>わびなび 管理画面</h1>
+    <div class="sub">記事の作成・公開を行います</div>
+    <div class="field">
+      <label for="pw">パスワード</label>
+      <input type="password" id="pw" placeholder="パスワードを入力" autocomplete="current-password">
+    </div>
+    <div class="login-err" id="err"></div>
+    <button class="btn btn-gold" style="width:100%" id="loginBtn">ログイン</button>
+  </div>
+</div>
+
+<script src="../assets/js/store.js"></script>
+<script>
+  if (WabiStore.isAuthed()) location.href = 'dashboard.html';
+  var pw = document.getElementById('pw');
+  var err = document.getElementById('err');
+  function tryLogin() {
+    if (WabiStore.login(pw.value)) {
+      location.href = 'dashboard.html';
+    } else {
+      err.textContent = 'パスワードが違います';
+      pw.value = '';
+    }
+  }
+  document.getElementById('loginBtn').addEventListener('click', tryLogin);
+  pw.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryLogin(); });
+</script>
+</body>
+</html>

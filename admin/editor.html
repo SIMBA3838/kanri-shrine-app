@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>わびなび 管理画面｜記事編集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<div class="admin-wrap editor-wrap">
+  <header class="adm-header">
+    <div class="adm-brand"><a href="dashboard.html" style="display:flex;align-items:center;gap:8px"><span class="dot">‹</span>記事一覧へ</a></div>
+    <div class="right">
+      <button class="btn btn-ghost btn-sm" id="previewBtn">プレビュー</button>
+    </div>
+  </header>
+
+  <h1 style="font-family:var(--serif);font-size:22px;font-weight:700;margin:24px 0 4px" id="edTitle">新規記事</h1>
+  <p class="help">入力した内容は自動で下書き保存されます</p>
+
+  <!-- 基本情報 -->
+  <div class="ed-section">
+    <h2><span class="n">1</span>基本情報</h2>
+    <div class="field">
+      <label>記事タイトル（改行で2行になります）</label>
+      <textarea id="f_title" placeholder="善光寺と門前町を巡る&#10;歴史とご利益の旅"></textarea>
+    </div>
+    <div class="ed-row">
+      <div class="field">
+        <label>カテゴリー</label>
+        <input id="f_category" placeholder="定番巡礼ルート">
+      </div>
+      <div class="field">
+        <label>公開日</label>
+        <input type="date" id="f_date">
+      </div>
+    </div>
+    <div class="field">
+      <label>URLスラッグ（半角英数）</label>
+      <input id="f_slug" placeholder="zenkoji-monzen">
+      <div class="help">記事のURLになります。例：article.html?slug=zenkoji-monzen</div>
+    </div>
+    <div class="field">
+      <label>ヒーロー画像URL</label>
+      <input id="f_hero" placeholder="https://...">
+    </div>
+    <div class="field">
+      <label>リード文（導入の説明）</label>
+      <textarea id="f_lead" placeholder="善光寺と門前町の歴史に触れながら…"></textarea>
+    </div>
+  </div>
+
+  <!-- 巡礼する神社 -->
+  <div class="ed-section">
+    <h2><span class="n">2</span>巡礼する神社</h2>
+    <div id="spotsRep"></div>
+    <button class="add-btn" id="addSpot">＋ 神社を追加</button>
+  </div>
+
+  <!-- 近隣スポット -->
+  <div class="ed-section">
+    <h2><span class="n">3</span>近隣のおすすめスポット</h2>
+    <div id="nearbyRep"></div>
+    <button class="add-btn" id="addNearby">＋ スポットを追加</button>
+  </div>
+
+  <!-- まとめ -->
+  <div class="ed-section">
+    <h2><span class="n">4</span>巡礼のまとめ</h2>
+    <div class="field">
+      <textarea id="f_summary" placeholder="歴史ある善光寺と、門前町のグルメや自然を楽しむ充実のルート…"></textarea>
+    </div>
+  </div>
+
+  <!-- 宿泊施設 -->
+  <div class="ed-section">
+    <h2><span class="n">5</span>おすすめ宿泊施設（アフィリエイト）</h2>
+    <div id="lodgingRep"></div>
+    <button class="add-btn" id="addLodging">＋ 宿泊施設を追加</button>
+  </div>
+</div>
+
+<!-- 固定フッター -->
+<div class="ed-footer">
+  <div class="ed-footer-inner">
+    <button class="btn btn-ghost" id="saveDraft">下書き保存</button>
+    <button class="btn btn-purple" id="publish">公開する</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- プレビューモーダル -->
+<div class="modal" id="previewModal">
+  <div class="modal-frame">
+    <button class="modal-close" id="previewClose">×</button>
+    <iframe id="previewFrame"></iframe>
+  </div>
+</div>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/editor.js"></script>
+</body>
+</html>
